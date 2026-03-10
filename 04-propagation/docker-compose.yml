@@ -3,6 +3,10 @@ services:
     build: ./java-year
     ports:
       - "6001:6001"
+    env_file:
+      - ../env
+    environment:
+      - OTEL_SERVICE_NAME=java-year-$NAME
 
   java-name:
     build: ./java-name
@@ -10,3 +14,7 @@ services:
       - "6002:6002"
     depends_on:
       - java-year
+    env_file:
+      - ../env
+    environment:
+      - OTEL_SERVICE_NAME=java-name-$NAME
