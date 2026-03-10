@@ -13,5 +13,7 @@ ENV OTEL_RESOURCE_ATTRIBUTES=service.version=01-autostrumentation
 ENV OTEL_EXPORTER_OTLP_ENDPOINT=https://api.honeycomb.io
 ENV OTEL_EXPORTER_OTLP_PROTOCOL="http/protobuf"
 ENV OTEL_LOGS_EXPORTER=none
+ENV HTTP_PROXY="http://host.docker.internal:3128"
+ENV HTTPS_PROXY="http://host.docker.internal:3128"
 EXPOSE 6001
 ENTRYPOINT ["java", "-javaagent:/app/opentelemetry-javaagent.jar", "-jar", "app.jar"]
