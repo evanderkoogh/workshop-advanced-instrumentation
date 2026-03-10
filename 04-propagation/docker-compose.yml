@@ -1,0 +1,12 @@
+services:
+  java-year:
+    build: ./java-year
+    ports:
+      - "6001:6001"
+
+  java-name:
+    build: ./java-name
+    ports:
+      - "6002:6002"
+    depends_on:
+      - java-year
